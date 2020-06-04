@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 
-    public GameObject startPanel, endPanel, reviveButton;
+    public GameObject startPanel, endPanel, skinsPanel, pausedPanel, pauseButton, muteImage, reviveButton;
     public TextMeshProUGUI scoreText, nextSliceText, highScoreText, endScoreText, endHighScoreText;
+
+    public Sprite[] skins;
 
     [HideInInspector]
     public bool gameIsOver = false;
@@ -18,7 +20,9 @@ public class GameManager : MonoBehaviour {
     {
         StartPanelActivation();
         HighScoreCheck();
-	}
+
+        PlayerPrefs.SetInt("Skin1Unlocked", 1);
+    }
 
     public void Initialize()
     {

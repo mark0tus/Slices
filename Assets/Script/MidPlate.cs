@@ -13,6 +13,7 @@ public class MidPlate : MonoBehaviour
 
     void Start()
     {
+        skin = FindObjectOfType<GameManager>().skins[PlayerPrefs.GetInt("Skin", 0)];
         nextSlice = Instantiate(slices[Random.Range(0, slices.Length)], nextSpawnPos.position, Quaternion.identity);       //Spawns a slice
         for (int i = 0; i < nextSlice.transform.childCount; i++)
             nextSlice.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = skin;        //Changes its skin
