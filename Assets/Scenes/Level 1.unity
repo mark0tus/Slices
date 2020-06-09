@@ -7521,7 +7521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1685113718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9045,6 +9045,8 @@ MonoBehaviour:
   - {fileID: 1308609382084689781, guid: 40ad94a92231b4b48a82010c05212d9c, type: 3}
   nextSpawnPos: {fileID: 2145092138}
   nextSliceColor: {r: 0.7830189, g: 0.7793254, b: 0.7793254, a: 0.74509805}
+  explosionParticle: {fileID: 972961257278458395, guid: 3123f44523311594bacfda65f8b21d8e,
+    type: 3}
 --- !u!212 &1898461140
 SpriteRenderer:
   m_ObjectHideFlags: 0
