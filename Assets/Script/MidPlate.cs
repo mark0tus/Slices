@@ -10,10 +10,12 @@ public class MidPlate : MonoBehaviour
 
     private Sprite skin;
     private GameObject tempSlice, nextSlice;
+    public GameObject explosionParticle;
 
     void Start()
     {
         skin = FindObjectOfType<GameManager>().skins[PlayerPrefs.GetInt("Skin", 0)];
+        
         nextSlice = Instantiate(slices[Random.Range(0, slices.Length)], nextSpawnPos.position, Quaternion.identity);       //Spawns a slice
         for (int i = 0; i < nextSlice.transform.childCount; i++)
             nextSlice.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = skin;        //Changes its skin
@@ -64,6 +66,7 @@ public class MidPlate : MonoBehaviour
                     pos++;
                 else
                     pos = 0;
+                    
             }
             if (canFitIn == true)
                 return;

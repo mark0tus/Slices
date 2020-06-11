@@ -10,11 +10,6 @@ public class Score : MonoBehaviour {
     [HideInInspector]
     public int score = 0;
 
-    void Start()
-    {
-        
-    }
-
     public void IncrementScore()
     {
             scoreText.text = (++score).ToString();    
@@ -26,6 +21,7 @@ public class Score : MonoBehaviour {
         {
             score += value;
             scoreText.text = score.ToString();
+            FindObjectOfType<AudioManager>().ScoreSound();
         }
 
     }

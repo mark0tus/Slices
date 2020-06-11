@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
     public void EndPanelActivation()
     {
         gameIsOver = true;
+        FindObjectOfType<AudioManager>().ErrorSound();
         nextSliceText.enabled = false;
         startPanel.SetActive(false);
         endPanel.SetActive(true);
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour {
 
     public void PausedPanelActivation()
     {
+        FindObjectOfType<AudioManager>().ButtonClickSound();
         startPanel.SetActive(false);
         endPanel.SetActive(false);
         skinsPanel.SetActive(false);
@@ -90,26 +92,38 @@ public class GameManager : MonoBehaviour {
         endPanel.SetActive(false);
         
         FindObjectOfType<MidPlate>().enabled = true;
+        FindObjectOfType<AudioManager>().ButtonClickSound();
     }
 
     public void RestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FindObjectOfType<AudioManager>().ButtonClickSound();
     }
     public void PauseButton()
     {
         pauseButton.SetActive(false);
         PausedPanelActivation();
         scoreText.enabled = false;
+        nextSliceText.enabled = false;
         Time.timeScale = 0f;
+        FindObjectOfType<AudioManager>().ButtonClickSound();
     }
 
     public void ResumeButton()
     {
         Time.timeScale = 1f;
         scoreText.enabled = true;
+        nextSliceText.enabled = true;
         pauseButton.SetActive(true);
         pausedPanel.SetActive(false);
+        FindObjectOfType<AudioManager>().ButtonClickSound();
+    }
+
+    public void QuitButton()
+    {
+        FindObjectOfType<AudioManager>().ButtonClickSound();
+        Application.Quit(); //quit for Windows users
     }
 
     public void HomeButton()

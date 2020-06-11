@@ -7,6 +7,7 @@ public class Slice : MonoBehaviour
     private bool canMove = false;
     private Vector3 targetPos;
     private Transform parentTransform;
+    public GameObject explosionParticle;
 
     void Update()
     {
@@ -17,8 +18,15 @@ public class Slice : MonoBehaviour
                 StopMovement();
         }
     }
-
-
+    public void SpawnParticle(bool canScore = true)
+    {
+        for (int i = 0; i < transform.childCount; i++)      //Loops through all of the Slices
+        {
+            //Destroy(Instantiate(explosionParticle, transform.GetChild(i).transform.position, Quaternion.identity), 1f);
+            if (canScore)
+                FindObjectOfType<Score>().IncrementScore();      //Increments score
+        }
+    }
     public void Move(Vector3 target, Transform transf)
     {
         parentTransform = transf;
